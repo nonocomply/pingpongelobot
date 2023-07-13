@@ -1,0 +1,64 @@
+{
+    "players": [
+        {
+            "id": 0,
+            "first_name": "giorgio",
+            "wins": 0,
+            "looses": 0,
+            "elo": 1400,
+            "hits": 0,
+            "misses": 0,
+            "games": 0
+        },
+        {
+            "id": 1,
+            "first_name": "andrew",
+            "wins": 0,
+            "looses": 0,
+            "elo": 1400,
+            "hits": 0,
+            "misses": 0,
+            "games": 0
+        },
+        {
+            "id": 2,
+            "first_name": "sashko",
+            "wins": 0,
+            "looses": 0,
+            "elo": 1400,
+            "hits": 0,
+            "misses": 0,
+            "games": 0
+        },
+        {
+            "id": 3,
+            "first_name": "nani",
+            "wins": 0,
+            "looses": 0,
+            "elo": 1400,
+            "hits": 0,
+            "misses": 0,
+            "games": 0
+        },
+        {
+            "id": 4,
+            "first_name": "jeka)",
+            "wins": 0,
+            "looses": 0,
+            "elo": 1400,
+            "hits": 0,
+            "misses": 0,
+            "games": 0
+        },
+        {
+            "id": 5,
+            "first_name": "nikich",
+            "wins": 0,
+            "looses": 0,
+            "elo": 1400,
+            "hits": 0,
+            "misses": 0,
+            "games": 0
+        }
+    ]
+}
