@@ -14,13 +14,18 @@ class Buttons:
 
 # Start menu keyboard
 
-
 def start_keyboard() -> types.ReplyKeyboardMarkup:
+    """
+    Function creates start keyboard with stats and leaderboard buttons.
+
+    Returns:
+        ReplyKeyboardMarkup: stats and leaderboard buttons in one row. 
+    """
+
     stats_btn = Buttons.stats_btn
     leaderboard_btn = Buttons.leaderboard_btn
 
     start_keyboard = ReplyKeyboardMarkup(resize_keyboard=True)
-    # start_keyboard.row(match_btn)
     start_keyboard.row(stats_btn, leaderboard_btn)
 
     return start_keyboard
@@ -28,8 +33,16 @@ def start_keyboard() -> types.ReplyKeyboardMarkup:
 
 # Admin menu keyboard
 
-
 def admin_keyboard() -> types.ReplyKeyboardMarkup:
+    """
+    Function creates admin's start keyboard with stats,
+    leaderboard and game buttons.
+
+    Returns:
+        ReplyKeyboardMarkup: game button at first row,
+            and stats and leaderboard buttons in second row.
+    """
+
     stats_btn = Buttons.stats_btn
     leaderboard_btn = Buttons.leaderboard_btn
     match_btn = Buttons.match_btn
@@ -45,6 +58,15 @@ def admin_keyboard() -> types.ReplyKeyboardMarkup:
 
 
 def players_keyboard() -> types.ReplyKeyboardMarkup:
+    """
+    Function creates admin's keyboard with player names
+    and 'Back' buttons. Players buttons creating from player list.
+
+    Returns:
+        ReplyKeyboardMarkup: Keyboard with player names
+            'Back' button.
+    """
+
     players_keyboard = ReplyKeyboardMarkup(resize_keyboard=True)
 
     stats = Rating()
@@ -65,6 +87,14 @@ def players_keyboard() -> types.ReplyKeyboardMarkup:
 
 
 def new_game_keyboard() -> types.ReplyKeyboardMarkup:
+    """
+    Function creates 'new game' keayboard for start new game or no.
+
+    Returns:
+        ReplyKeyboardMarkup: Keyboard with one row includes 
+            'new game' and 'back' buttons.
+    """
+
     match_btn = Buttons.match_btn
     back_btn = Buttons.back_btn
 
