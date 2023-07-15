@@ -2,10 +2,44 @@ import json
 
 
 class Rating:
-    def __init__(self) -> int or None:
+    """
+    Class contains methods for getting value's from JSON file and pretty
+    strings for bot messages.
+    """
+
+    def __init__(self) -> None:
         pass
 
-    def message_to_player_id(self, message):
+    def get_players_list(self) -> list:
+        """
+        Method opening JSON file and creating list with player names.
+
+        Returns:
+            list: Player names (str).
+        """
+
+        with open("players.json", "r") as file:
+            data = json.load(file)
+
+        players_list = []
+        [players_list.append(item.get("first_name")) for item in data["players"]]
+
+        return players_list
+
+
+    def message_to_player_id(self, message: str) -> int:
+        """
+        Method for searching player ID by player name.
+        If player name countains in JSON file method returns ID,
+        else returns -1.
+        
+        Args:
+            message (str): User message with player name or not.
+
+        Returns:
+            int: Player ID if player from player list, else -1.
+        """
+
         players_list = self.get_players_list()
 
         if message in players_list:
@@ -13,6 +47,15 @@ class Rating:
         return -1
 
     def show_elo_sorted_list(self) -> str:
+        """
+        Method taking values of 'first_name', 'elo' and 'games' from
+        JSON file, and comparing it to list of tuples, then sorting it
+        by ELO Rating.
+        
+        Returns:
+            str: pretty string with sorted players stats.
+        """
+
         with open("players.json", "r") as file:
             data = json.load(file)
 
@@ -44,6 +87,16 @@ class Rating:
         return "\n\n".join(result_list)
 
     def get_player_stats(self, player_id: int) -> dict | None:
+        """
+        Method's openning JSON file for getting dict with player stats.
+
+        Args:
+            player_id (int): player ID.
+
+        Returns:
+            dict: if player ID exist, else returns None.
+        """
+
         with open("players.json", "r") as file:
             data = json.load(file)
 
@@ -55,6 +108,16 @@ class Rating:
         return None
 
     def player_stats_to_message(self, player_id: int) -> str:
+        """
+        Method creating pretty string with player stats.
+
+        Args:
+            player_id (int): player ID.
+
+        Returns:
+            str: pretty f-string with player stats.
+        """
+
         player_stats = self.get_player_stats(player_id)
 
         if player_stats["games"] != 0:
@@ -80,15 +143,6 @@ class Rating:
         ]
 
         return "".join(msg)
-
-    def get_players_list(self) -> list:
-        with open("players.json", "r") as file:
-            data = json.load(file)
-
-        players_list = []
-        [players_list.append(item.get("first_name")) for item in data["players"]]
-
-        return players_list
 
 
 if __name__ == "__main__":
